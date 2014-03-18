@@ -21,7 +21,7 @@ public class ArrayUtil {
     /**
     * initArray
     *                 Static method to init N by N matrix 
-    
+    *
     * @param length:
     *                An lenth of array to initialise
     * @return:

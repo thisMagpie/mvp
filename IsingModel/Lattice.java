@@ -19,7 +19,7 @@
 class Lattice {
 
     /**
-    * spin
+    * initSpins
     *                 Static method to init n by n matrix with
     *                 up or spin
     * @param length:
@@ -27,7 +27,7 @@ class Lattice {
     * @return:
     *                the array with up and down spins
     */
-    public static int[][] spin(int length) {
+    public static int[][] initSpins(int length) {
         int[][] spin = new int[length][length];
         for (int i = 0; i < spin.length; i++) {
             for (int j = 0; j < spin.length; j++) {
@@ -36,5 +36,26 @@ class Lattice {
             }
         }
         return spin;
+    }
+
+    /**
+    * printSpins:
+    *                Static method to init n by n matrix with
+    *                up or spin
+    * @param data:
+    *                An lenth of a 2D array to initialise with spins
+    * @return:
+    *                the array with up and down spins
+    */
+    public static void printSpins(int[][] data) { //TODO make an appropriate class for this its an
+                                                 //IO function and should not be here
+        String point = new String();
+        for (int i=0;i<data.length;i++){
+            for (int j=0;j<data[0].length;j++){
+                if (data[i][j] == 1) point += " ";
+                else point += "*";
+                System.out.print(point);
+            }
+        }
     }
 }
