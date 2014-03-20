@@ -42,20 +42,38 @@ class Lattice {
     * printSpins:
     *                Static method to init n by n matrix with
     *                up or spin
-    * @param data:
+    * @param spin:
     *                An lenth of a 2D array to initialise with spins
     * @return:
     *                the array with up and down spins
     */
-    public static void printSpins(int[][] data) { //TODO make an appropriate class for this its an
+    public static void printSpins(int[][] spin) { //TODO make an appropriate class for this its an
                                                  //IO function and should not be here
         String point = new String();
-        for (int i=0;i<data.length;i++){
-            for (int j=0;j<data[0].length;j++){
-                if (data[i][j] == 1) point += " ";
+        for (int i=0;i<spin.length;i++){
+            for (int j=0;j<spin[0].length;j++){
+                if (spin[i][j] == 1) point += " ";
                 else point += "*";
                 System.out.print(point);
             }
         }
+    }
+
+    /**
+    * flipSpins:
+    *                Does exactly what it says on the tin. The simulation updates and voila!
+    * @param spin:
+    *                An lenth of a 2D array to initialise with spins
+    * @return:
+    *                the array with updated i.e. 'flipped' spins having used the nearest
+    *                neighbour
+    */
+    public static void flipSpin(int[][] spin){
+        for (int i=0;i<spin.length;i++){
+            for (int j=0;j<spin[0].length;j++){
+                spin[i][j] = -spin[i][j];
+            }
+        }
+        return spin;
     }
 }
