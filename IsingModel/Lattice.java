@@ -19,7 +19,7 @@
 class Lattice {
 
     /**
-    * initSpins
+    * @initSpins
     *                 Static method to init n by n matrix with
     *                 up or spin
     * @param length:
@@ -39,41 +39,44 @@ class Lattice {
     }
 
     /**
-    * printSpins:
+    * @printSpins:
     *                Static method to init n by n matrix with
     *                up or spin
     * @param spin:
-    *                An lenth of a 2D array to initialise with spins
+    *                An lenth of a array to initialise with spins
     * @return:
     *                the array with up and down spins
     */
-    public static void printSpins(int[][] spin) { //TODO make an appropriate class for this its an
-                                                 //IO function and should not be here
+    public static void printSpins(int[][] spin) {
         String point = new String();
         for (int i=0;i<spin.length;i++){
             for (int j=0;j<spin[0].length;j++){
                 if (spin[i][j] == 1) point += " ";
                 else point += "*";
-                System.out.print(point);
             }
+            System.out.print(point);
         }
+    }
+    /**
+    * @flipSpins:
+    *                Does exactly what it says on the tin.
+    * @param spin:
+    *                integer spin element
+    * @return:
+    *                updated'flipped' spin
+    */
+    public static int[][] flipSpin(int spin){
+        return - 1 * spin;
     }
 
-    /**
-    * flipSpins:
-    *                Does exactly what it says on the tin. The simulation updates and voila!
-    * @param spin:
-    *                An lenth of a 2D array to initialise with spins
-    * @return:
-    *                the array with updated i.e. 'flipped' spins having used the nearest
-    *                neighbour
-    */
-    public static void flipSpin(int[][] spin){
-        for (int i=0;i<spin.length;i++){
-            for (int j=0;j<spin[0].length;j++){
-                spin[i][j] = -spin[i][j];
-            }
-        }
-        return spin;
+  int normalize(int target, int modulo) {
+    if (target >= 0) {
+      return target % modulo;
+    } else {
+      return (target + modulo*(1 + Math.abs(target/modulo))) % modulo;
     }
+  }
+
+
+
 }
